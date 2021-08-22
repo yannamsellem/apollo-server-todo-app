@@ -1,0 +1,42 @@
+{
+  "name": "apollo-server-todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && tsc",
+    "lint": "eslint ./src/**/*.ts",
+    "type-gen": "graphql-codegen",
+    "build": "esbuild src/index.ts --bundle --loader:.graphql=text --sourcemap --platform=node --outfile=dist/service.js --external:pg-native",
+    "start-build": "node -r source-map-support/register dist/service.js",
+    "start": "npm run build && npm run start-build",
+    "dev": "nodemon"
+  },
+  "keywords": [],
+  "author": "Yann Amsellem <yann_ams@icloud.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@graphql-codegen/add": "^3.1.0",
+    "@graphql-codegen/cli": "^2.1.0",
+    "@graphql-codegen/typescript": "^2.1.0",
+    "@types/pg": "^8.6.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "esbuild": "^0.12.21",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.0",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "source-map-support": "^0.5.19",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "apollo-server": "^3.1.2",
+    "dotenv": "^10.0.0",
+    "graphql": "^15.5.1",
+    "nanoid": "^3.1.25",
+    "pg": "^8.7.1"
+  }
+}

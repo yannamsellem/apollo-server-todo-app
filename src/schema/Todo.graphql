@@ -1,0 +1,42 @@
+type Todo implements Node {
+  id: ID!
+  text: String!
+  completed: Boolean
+  createdAt: Date!
+}
+
+type TodoEdge {
+  cursor: String!
+  node: Todo!
+}
+
+type TodoConnection {
+  pageInfo: PageInfo!
+  edges: [TodoEdge!]
+}
+
+input CreateTodoInput {
+  text: String
+}
+
+type CreateTodoPayload {
+  todo: Todo
+}
+
+input UpdateTodoInput {
+  id: ID!
+  text: String!
+  completed: Boolean!
+}
+
+type UpdateTodoPayload {
+  todo: Todo
+}
+
+input DeleteTodoInput {
+  id: ID!
+}
+
+type DeleteTodoPayload {
+  todo: Todo
+}

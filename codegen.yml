@@ -1,0 +1,21 @@
+schema: src/schema/*.graphql
+generates:
+  ./src/@types/schema.d.ts:
+    hooks:
+      afterOneFileWrite:
+        - npx prettier --write
+    plugins:
+      - add:
+          content:
+            - 'declare namespace Schema {'
+      - add:
+          placement: 'append'
+          content: '}'
+      - typescript
+    config:
+      noExport: true
+      skipTypename: true
+      enumsAsTypes: true
+      declarationKind: 'interface'
+      scalars:
+        Date: Date

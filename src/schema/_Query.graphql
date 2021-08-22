@@ -1,0 +1,5 @@
+type Query {
+  node(id: ID!): Node
+  todo(id: ID!): Todo
+  todos(first: Int!, after: String): TodoConnection
+}

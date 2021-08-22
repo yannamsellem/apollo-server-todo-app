@@ -1,0 +1,5 @@
+type Mutation {
+  createTodo(input: CreateTodoInput!): CreateTodoPayload
+  deleteTodo(input: DeleteTodoInput!): DeleteTodoPayload
+  updateTodo(input: UpdateTodoInput!): UpdateTodoPayload
+}
