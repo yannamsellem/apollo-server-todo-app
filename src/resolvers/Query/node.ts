@@ -3,5 +3,9 @@ export default async function node(
   { id }: Schema.QueryNodeArgs,
   context: Context,
 ): Promise<Schema.Node> {
-  return context.repository.get(id)
+  const result = await context.repository.get(id)
+
+  if (!result) throw new Error(`Todo not found for id: ${id}`)
+
+  return result
 }

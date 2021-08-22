@@ -85,8 +85,6 @@ export async function get(id: string) {
 
   client.release()
 
-  if (!row) throw new Error(`Todo not found for id: ${id}`)
-
   return rawToTodo(row)
 }
 
@@ -101,8 +99,6 @@ export async function update(id: string, text: string, completed: boolean) {
   )
 
   client.release()
-
-  if (!row) throw new Error(`Todo not found for id: ${id}`)
 
   return rawToTodo(row)
 }

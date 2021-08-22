@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid'
 
-const db = new Map<string, Schema.Todo>()
+export const db = new Map<string, Schema.Todo>()
 
 export async function create(text: string): Promise<Schema.Todo> {
   const todo = {
@@ -16,11 +16,7 @@ export async function create(text: string): Promise<Schema.Todo> {
 }
 
 export async function get(id: string) {
-  const todo = db.get(id)
-
-  if (!todo) throw new Error(`Todo not found for id: ${id}`)
-
-  return todo
+  return db.get(id)
 }
 
 export async function update(

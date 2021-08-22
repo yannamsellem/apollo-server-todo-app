@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable no-console */
 import { ApolloServer } from 'apollo-server'
 import dotenv from 'dotenv'

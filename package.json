@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && tsc",
+    "ci": "npm run lint && npm run type-check && npm run test",
     "lint": "eslint ./src/**/*.ts",
+    "type-check": "tsc --noEmit",
+    "test": "jest",
     "type-gen": "graphql-codegen",
     "build": "esbuild src/index.ts --bundle --loader:.graphql=text --sourcemap --platform=node --outfile=dist/service.js --external:pg-native",
     "start-build": "node -r source-map-support/register dist/service.js",
@@ -19,6 +21,7 @@
     "@graphql-codegen/add": "^3.1.0",
     "@graphql-codegen/cli": "^2.1.0",
     "@graphql-codegen/typescript": "^2.1.0",
+    "@types/jest": "^27.0.1",
     "@types/pg": "^8.6.1",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
@@ -27,9 +30,12 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.0",
+    "graphql-tag": "^2.12.5",
+    "jest": "^27.0.6",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
     "source-map-support": "^0.5.19",
+    "ts-jest": "^27.0.5",
     "typescript": "^4.3.5"
   },
   "dependencies": {
